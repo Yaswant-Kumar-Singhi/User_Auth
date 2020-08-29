@@ -1,4 +1,6 @@
 //setting up home controller for user
 module.exports.home = function(req,res){
-    return res.end('Home')
+    return res.render('home',{
+        title: "User-Auth"
+    })
 }

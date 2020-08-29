@@ -13,6 +13,11 @@ const port = 8000
 app.use('/',require('./routes'));
 
 
+//seting up view engine
+app.set('view engine','ejs');
+app.set('views','./views');
+
+
 //Checking if their is an error in running 
 app.listen(port,function(err){
     if(err){
