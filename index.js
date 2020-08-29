@@ -1,5 +1,6 @@
 //requiring global files
 const express = require('express')
+const expressLayouts = require('express-ejs-layouts')
 
 //requiring local files
 
@@ -8,6 +9,10 @@ const app = express()
 
 //By default at production level the port is 80 but I have defined port to be 8000
 const port = 8000
+
+//we are defining it above routes because routes will be rendering some views and those
+//views belong from some sort of layouts.
+app.use(expressLayouts);
 
 //using routes for routing to different pages
 app.use('/',require('./routes'));
