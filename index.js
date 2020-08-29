@@ -4,8 +4,12 @@ const expressLayouts = require('express-ejs-layouts')
 
 //requiring local files
 
+
 //defining functions
 const app = express()
+
+//using static files
+app.use(express.static('./assets'));
 
 //By default at production level the port is 80 but I have defined port to be 8000
 const port = 8000
@@ -13,6 +17,10 @@ const port = 8000
 //we are defining it above routes because routes will be rendering some views and those
 //views belong from some sort of layouts.
 app.use(expressLayouts);
+
+//extract styles and scripts from sub pages
+app.set('layout extractStyles',true)
+app.set('layout extractScripts',true)
 
 //using routes for routing to different pages
 app.use('/',require('./routes'));
