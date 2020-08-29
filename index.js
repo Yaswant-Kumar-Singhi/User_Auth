@@ -9,6 +9,7 @@ const app = express()
 //By default at production level the port is 80 but I have defined port to be 8000
 const port = 8000
 
+//using routes for routing to different pages
 app.use('/',require('./routes'));
 
 
