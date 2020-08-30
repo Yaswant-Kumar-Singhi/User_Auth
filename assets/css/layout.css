@@ -1,3 +1,6 @@
 body {
   margin: 0;
   background-color: aquamarine; }
+
+#layout-main {
+  height: 86%; }
