@@ -1,3 +1,38 @@
 footer {
   height: 2.5rem;
-  background-color: lightcyan; }
+  background-color: lightcyan;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  justify-content: space-between; }
+
+#leftcontent {
+  display: flex;
+  justify-items: flex-start;
+  position: relative;
+  left: 1%; }
+  #leftcontent #pageName {
+    font-size: large;
+    padding-top: 8px;
+    padding-left: 3px;
+    color: lightsalmon;
+    font-family: Georgia, 'Times New Roman', Times, serif; }
+    #leftcontent #pageName a {
+      text-decoration: none;
+      color: lightcoral; }
+
+#rightcontent {
+  display: flex;
+  justify-items: flex-end;
+  position: relative;
+  right: 6%; }
+  #rightcontent #loginButton a {
+    text-decoration: none;
+    color: darkcyan;
+    font-size: larger;
+    padding-right: 5px; }
+  #rightcontent #signupButton a {
+    text-decoration: none;
+    color: yellowgreen;
+    font-size: larger;
+    padding-left: 5px; }
