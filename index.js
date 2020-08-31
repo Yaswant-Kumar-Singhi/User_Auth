@@ -35,6 +35,10 @@ app.use(expressLayouts);
 app.set('layout extractStyles',true)
 app.set('layout extractScripts',true)
 
+
+
+
+
 //using routes for routing to different pages
 app.use('/',require('./routes'));
 
@@ -42,6 +46,9 @@ app.use('/',require('./routes'));
 //seting up view engine
 app.set('view engine','ejs');
 app.set('views','./views');
+
+
+
 
 
 //Checking if their is an error in running 
