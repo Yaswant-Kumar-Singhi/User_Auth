@@ -1,6 +1,13 @@
-//setting up user controller for login signup
-module.exports.login = function(req,res){
-    return res.render('login',{
+//setting up user controller for signup
+module.exports.signin = function(req,res){
+    return res.render('sign-in',{
         title: "Sign-In"
+    })
+}
+
+//setting up user controller for signup
+module.exports.signup = function(req,res){
+    return res.render('sign-up',{
+        title: "Sign-Up"
     })
 }
