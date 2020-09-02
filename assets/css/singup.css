@@ -1,0 +1,63 @@
+#pageHeadline {
+  height: 2rem;
+  padding: 3px;
+  background-color: yellowgreen;
+  border: 2px solid blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; }
+
+#formContainer {
+  position: absolute;
+  left: 30%;
+  top: 25%;
+  width: 40%;
+  border: 2px solid grey;
+  height: 26rem;
+  background-color: lightblue;
+  display: flex; }
+  #formContainer #formContent {
+    margin: 0.5rem;
+    padding: 0.3rem;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+    flex-direction: row;
+    flex-wrap: nowrap; }
+    #formContainer #formContent input {
+      font-size: 1rem;
+      padding: 8px;
+      margin: 8px;
+      border-radius: 5px; }
+    #formContainer #formContent input[type=submit] {
+      position: relative;
+      left: 30%; }
+  #formContainer #horizontalbar {
+    height: 18rem;
+    width: 0px;
+    border: 0.3px solid grey;
+    margin: 2rem; }
+  #formContainer #socialbox {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    position: relative;
+    top: 20%; }
+    #formContainer #socialbox #socialIcons {
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      #formContainer #socialbox #socialIcons .fa {
+        padding: 20px;
+        font-size: 30px;
+        width: 30px;
+        text-align: center;
+        text-decoration: none;
+        margin: 5px 2px;
+        border-radius: 40%; }
+      #formContainer #socialbox #socialIcons .fa-facebook {
+        background: #3B5998;
+        color: whitesmoke;
+        margin-right: 20px; }
+      #formContainer #socialbox #socialIcons .fa-google {
+        background: #dd4b39;
+        color: whitesmoke; }

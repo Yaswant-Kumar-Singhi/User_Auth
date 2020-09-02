@@ -1,3 +1,38 @@
-<h1>
-    Sign up form
-</h1>
+<link rel="stylesheet" href="/css/singup.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div id="pageHeadline">
+    <h3>Please fill up details to move forward!</h3>
+</div>
+
+<div id="formContainer">
+    <section id="formContent">
+        <form action="/users/create" method="POST">
+            <input type="text" name="name"  placeholder="Your name" required><br> 
+            <input type="email" name="email"  placeholder="Your email" required><br>
+            <input type="password" name="password"  placeholder="password" required><br>
+            <input type="password" name="confirmpassword"  placeholder="Confirm Password" required> <br>
+            <input type="password" name="securityPin"  placeholder="Enter your Security Pin" required> <br>
+            <input type="text" name="confirmsecurityPin"  placeholder="Confirm Security Pin" required> <br>
+            <input type="submit"  value = "Sign Up">
+        
+        </form>
+    </section>
+
+
+    <section id="horizontalbar">
+        
+    </section>
+
+
+    <section id=socialbox>
+        <section id="socialContent">
+            <h4>Use Social Account to Login</h4>
+        </section>
+        <section id="socialIcons">
+            <a href="" class="fa fa-facebook"></a>
+            <a href="" class="fa fa-google"></a>
+        </section>
+    </section>
+    
+</div>
