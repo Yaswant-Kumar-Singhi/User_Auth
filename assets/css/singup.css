@@ -18,7 +18,8 @@
   background-color: black;
   background-color: rgba(0, 0, 0, 0.4);
   display: flex;
-  border-radius: 8px; }
+  border-radius: 8px;
+  box-shadow: 5px 5px lightseagreen; }
   #formContainer #formContent {
     margin: 0.5rem;
     padding: 0.3rem;
@@ -41,9 +42,12 @@
     border: 0.3px solid black;
     margin: 2rem; }
   #formContainer #socialbox {
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     position: relative;
-    top: 20%; }
+    top: 20%;
+    color: linen;
+    font-size: larger;
+    font-weight: 600; }
     #formContainer #socialbox #socialIcons {
       display: flex;
       justify-content: center;
