@@ -1,3 +1,35 @@
-<h5>
-    Login page
-</h5>
+<link rel="stylesheet" href="/css/singin.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div id="pageHeadline">
+    <h3>Welcome to my user-auth signin portal!</h3>
+</div>
+
+<div id="formContainer">
+    <section id="formContent">
+        <form action="/users/create" method="POST">
+            
+            <input type="email" name="email"  placeholder="Your email" required><br>
+            <input type="password" name="password"  placeholder="password" required><br>
+            <input type="submit"  value = "Sign In">
+            <a href="#" style="position: relative; left:5%">Forgot Password</a>
+        </form>
+    </section>
+
+
+    <section id="horizontalbar">
+        
+    </section>
+
+
+    <section id=socialbox>
+        <section id="socialContent">
+            <h4>Use Social Account to Login</h4>
+        </section>
+        <section id="socialIcons">
+            <a href="" class="fa fa-facebook"></a>
+            <a href="" class="fa fa-google"></a>
+        </section>
+    </section>
+    
+</div>
