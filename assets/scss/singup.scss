@@ -9,6 +9,29 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+#pageNotification{
+    height: 30px;
+    
+    h3 {
+        text-align: right;
+        color: red;
+        white-space: nowrap;  
+        left: 0%;
+        position: absolute;
+        animation: rightThenLeft 16s linear 1s infinite backwards;
+        width: 150px;
+    }
+    
+    @keyframes rightThenLeft {
+       
+        from {transform: translateX(550px);}
+        to {transform: translateX(-500px );}
+    }
+}
+
+
+
+
 #formContainer{
     position: absolute;
     left:30%;
@@ -41,7 +64,7 @@
 
     input[type=submit]{
         position: relative;
-        left: 30%;
+        left: 100%;
     }
 
     }
@@ -91,3 +114,4 @@
 
 }
 }
+

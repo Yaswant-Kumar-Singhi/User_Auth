@@ -5,15 +5,23 @@
     <h3>Please fill up details to move forward!</h3>
 </div>
 
+<div id="pageNotification">
+    <h3>Password must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters</h3>
+</div>
+<div id="pageNotification">
+    <h3>Do not share your security pin which will be used to reset your password in future!</h3>
+</div>
+
 <div id="formContainer">
     <section id="formContent">
         <form action="/users/create" method="POST">
             <input type="text" name="name"  placeholder="Your name" required><br> 
             <input type="email" name="email"  placeholder="Your email" required><br>
-            <input type="password" name="password"  placeholder="password" required><br>
-            <input type="password" name="confirmpassword"  placeholder="Confirm Password" required> <br>
-            <input type="password" name="securityPin"  placeholder="Enter 4 digit Security Pin " required> <br>
-            <input type="text" name="confirmsecurityPin"  placeholder="Confirm Security Pin" required> <br>
+            <input type="password" name="password"  placeholder="Enter password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required pattern=".{6,}"><br>
+            <input type="password" name="confirmpassword"  placeholder="Confirm Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required> <br>
+            <input type="password" name="securityPin"  placeholder="Enter 4 digit Security Pin "  maxlength="4" pattern="^0[1-9]|[1-9]\d$" required> <br>
+            <input type="text" name="confirmsecurityPin"  placeholder="Confirm Security Pin" maxlength="4" pattern="^0[1-9]|[1-9]\d$" required> <br>
+            <input type="checkbox" name="checkMe" required><a>I agree to <a href="#">Terms & Conditions</a></a> <br>
             <input type="submit"  value = "Sign Up">
         </form>
     </section>
