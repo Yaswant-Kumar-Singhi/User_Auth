@@ -1,6 +1,6 @@
 //requiring local files
 const User = require('../models/user')
-
+const customMware = require('../config/middleware')
 
 //setting up user-action for signip
 module.exports.signin = function(req,res){
@@ -35,10 +35,12 @@ module.exports.profile = function(req,res){
 
 module.exports.create = function(req,res){
     if(req.body.password != req.body.confirmpassword){
+        req.flash('error','Password Mismatch')
         return res.redirect('back');
     }
 
     if(req.body.securityPin != req.body.confirmsecurityPin){
+        req.flash('error','Security Pin Mismatch')
         return res.redirect('back');
     }
 
@@ -47,12 +49,16 @@ module.exports.create = function(req,res){
 
         if(!user){
             User.create(req.body,function(err,user){
-                if(err) {console.log("eror in creating user in signup"); return; } 
-
+                if(err) {
+                    console.log("eror in creating user in signup"); 
+                    
+                    return; } 
+                
                 return res.redirect('/user/signin');
             })
         }
         else{
+            req.flash('info','Please Fill the form Correctly')
             return res.redirect('/user/signup');
         }
     })
@@ -62,10 +68,12 @@ module.exports.create = function(req,res){
 
 //user session creation and desturction
 module.exports.createSession = function(req,res){
+    req.flash('success','Logged in Successfully')
     return res.redirect('/');
 }
 
 module.exports.destroySession = function(req,res){
     req.logout();
+    req.flash('success','Logged out Successfully')
     return res.redirect('/')
 }

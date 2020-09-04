@@ -4,15 +4,17 @@ const expressLayouts = require('express-ejs-layouts')
 const sassMiddleware = require('node-sass-middleware')
 const mongoose = require('mongoose')
 const cookieParser = require('cookie-parser')
-const session = require('express-session');
-const passport = require('passport');
-const MongoStore = require('connect-mongo')(session);
+const session = require('express-session')
+const passport = require('passport')
+const MongoStore = require('connect-mongo')(session)
+const flash = require('connect-flash')
 
 
 
 //requiring local files
 const db = require('./config/mongoose');
 const passportLocal = require('./config/passport-local-strategy');
+const customMware = require('./config/middleware')
 
 
 //defining functions
@@ -76,6 +78,9 @@ app.use(passport.session());
 
 app.use(passport.setAuthenticatedUser);
 
+//store the flash message which will store the session information
+app.use(flash());
+app.use(customMware.setFlash)
 
 //using routes for routing to different pages
 app.use('/',require('./routes'));
