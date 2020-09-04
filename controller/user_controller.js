@@ -1,4 +1,4 @@
-//setting up user controller for signup
+//setting up user-action for signup
 module.exports.signin = function(req,res){
     return res.render('sign-in',{
         title: "Sign-In",
@@ -6,9 +6,24 @@ module.exports.signin = function(req,res){
     })
 }
 
-//setting up user controller for signup
+//setting up user-action for signup
 module.exports.signup = function(req,res){
     return res.render('sign-up',{
         title: "Sign-Up"
     })
+}
+
+//setting up user-action for profile
+module.exports.profile = function(req,res){
+    return res.render('profile',{
+        title: "Profile"
+    })
+}
+
+module.exports.create = function(req,res){
+    //TODO LATER
+}
+
+module.exports.createSession = function(req,res){
+    //TODO LATER
 }
