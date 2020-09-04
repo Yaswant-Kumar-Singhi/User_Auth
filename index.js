@@ -3,6 +3,8 @@ const express = require('express')
 const expressLayouts = require('express-ejs-layouts')
 const sassMiddleware = require('node-sass-middleware')
 const mongoose = require('mongoose')
+const cookieParser = require('cookie-parser')
+
 
 //requiring local files
 const db = require('./config/mongoose');
@@ -11,6 +13,10 @@ const db = require('./config/mongoose');
 //defining functions
 const app = express()
 
+//reading through post request
+app.use(express.urlencoded());
+//setting up cokie parser
+app.use(cookieParser());
 
 //using saas middleware to convert scss files to css files
 app.use(sassMiddleware({
