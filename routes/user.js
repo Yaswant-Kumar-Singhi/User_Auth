@@ -1,14 +1,26 @@
 //requiring global files
 const express = require('express');
+const passport = require('passport');
 const router = express.Router();
 
 const userController = require('../controller/user_controller')
+router.get('/profile',passport.checkAuthentication,userController.profile);
+router.get('/signup',userController.signup);
+router.get('/signin',userController.signin);
 
-router.get('/signin',userController.signin)
-router.get('/signup',userController.signup)
-router.get('/profile',userController.profile)
 
-router.post('/create',userController.create)
+//using router for creating a user
+router.post('/create',userController.create);
+
+//use passport as a middleware for auth
+router.post('/create-session', passport.authenticate(
+    'local',
+    {failureRedirect : '/users/sign-in'},
+    
+),userController.createSession)
+
+//using router
+router.get('/sign-out',userController.destroySession);
 
 //exporting router
-module.exports=router;
+module.exports = router;

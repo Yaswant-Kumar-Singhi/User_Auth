@@ -2,19 +2,27 @@
 const User = require('../models/user')
 
 
-//setting up user-action for signup
+//setting up user-action for signip
 module.exports.signin = function(req,res){
+    if(req.isAuthenticated()){
+      return res.redirect('/user/profile');
+    }
+
     return res.render('sign-in',{
-        title: "Sign-In",
-        
+        title : "Sign In"
     })
 }
 
 //setting up user-action for signup
 module.exports.signup = function(req,res){
-    return res.render('sign-up',{
-        title: "Sign-Up"
-    })
+    if(req.isAuthenticated()){
+       return res.redirect('/user/profile');
+    }
+    else{
+        return res.render('sign-up',{
+            title:"Sign Up"
+        })
+    }
 }
 
 //setting up user-action for profile
@@ -23,6 +31,7 @@ module.exports.profile = function(req,res){
         title: "Profile"
     })
 }
+
 
 module.exports.create = function(req,res){
     if(req.body.password != req.body.confirmpassword){
@@ -50,6 +59,13 @@ module.exports.create = function(req,res){
 
 }
 
+
+//user session creation and desturction
 module.exports.createSession = function(req,res){
-    //TODO LATER
+    return res.redirect('/');
+}
+
+module.exports.destroySession = function(req,res){
+    req.logout();
+    return res.redirect('/')
 }

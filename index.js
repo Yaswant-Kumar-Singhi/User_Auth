@@ -4,10 +4,15 @@ const expressLayouts = require('express-ejs-layouts')
 const sassMiddleware = require('node-sass-middleware')
 const mongoose = require('mongoose')
 const cookieParser = require('cookie-parser')
+const session = require('express-session');
+const passport = require('passport');
+const MongoStore = require('connect-mongo')(session);
+
 
 
 //requiring local files
 const db = require('./config/mongoose');
+const passportLocal = require('./config/passport-local-strategy');
 
 
 //defining functions
@@ -45,6 +50,31 @@ app.set('layout extractScripts',true)
 
 
 
+//creating session
+app.use(session({
+    name : 'habbitTracker',
+    //TODO change the secret in production mode
+    secret : 'blahsomething',
+    saveUninitialized : false,
+    resave : false,
+    cookie : {
+        maxAge : (1000 * 60 * 100)
+    },
+    store : new MongoStore(
+        {
+        
+            mongooseConnection : mongoose.connection,
+            autoRemove : 'disabled'
+
+        }, function(err){
+        console.log(err)
+    })
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use(passport.setAuthenticatedUser);
 
 
 //using routes for routing to different pages
