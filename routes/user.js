@@ -26,5 +26,8 @@ router.get('/sign-out',userController.destroySession);
 //update Password
 router.post('/update',passport.checkAuthentication,userController.update)
 
+//reset password after signin
+router.post('/reset', passport.checkAuthentication,userController.resetPasswordAfterSignin)
+
 //exporting router
 module.exports = router;

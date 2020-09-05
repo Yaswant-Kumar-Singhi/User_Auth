@@ -76,11 +76,11 @@ module.exports.update = async function(req,res){
                 req.flash("success", "Profile Updated Successfully!");
                 return res.redirect("back");
             } else {
-                req.flash("info", "Wrong Password Pattern!");
+                req.flash("error", "Wrong Password Pattern!");
                 return res.redirect("back");
             }
         } else {
-            req.flash("info", "Wrong Password Pattern!");
+            req.flash("error", "Wrong Password Pattern!");
             return res.status(401).send("Unauthorized!");
         }
     }
@@ -89,6 +89,32 @@ module.exports.update = async function(req,res){
         console.log(err);
         return res.redirect("back");
     }
+}
+
+//creating action for password reset after signin
+module.exports.resetPasswordAfterSignin = async function(request,response){
+    if (request.query.id == request.user.id) {
+
+            let userFound = await User.findById(request.query.id);
+            let np = request.body.newpassword;
+            let cp = request.body.confirmPassword;
+            console.log(np)
+            console.log(cp)
+
+
+            if (userFound.password == request.body["oldpassword"] && np==cp ) {
+                await User.findByIdAndUpdate(request.query.id, { password: request.body["newpassword"] });
+                request.flash("success", "Password Updated Successfully!");
+                return response.redirect("back");
+            } else {
+                request.flash("error", "Wrong Password/Password Mismatch");
+                return response.redirect("back");
+            }
+        }
+            else {
+                request.flash("error", "Wrong Password! ");
+                return response.redirect("back");
+            }  
 }
 
 //user session creation and desturction

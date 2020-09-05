@@ -32,11 +32,11 @@
     
 
     <section id="resetPassword">
-        <form action="">
-            <input type="password" name="password" placeholder="Old Password"><br>
-            <input type="password" name="password" placeholder="New Password"><br>
-            <input type="password" name="password" placeholder="Retype Password"><br>
-            <input type="submit" value="Update Password">
+        <form action="/user/reset?id=<%=user.id%>" method="POST">
+            <input type="password" name="oldpassword" placeholder="Old Password"><br>
+            <input type="password" name="newpassword" placeholder="New Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" ><br>
+            <input type="password" name="confirmPassword" placeholder="Retype Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" ><br>
+            <input type="submit" value="Reset Password">
         </form>
     </section>
 </div>
