@@ -65,6 +65,31 @@ module.exports.create = function(req,res){
 
 }
 
+//creating action for updating password in db
+module.exports.update = async function(req,res){
+    try {
+        if (req.query.id == req.user.id) {
+            let userFound = await User.findById(req.query.id);
+            
+            if (userFound) {
+                await User.findByIdAndUpdate(req.query.id, { password: req.body.password });
+                req.flash("success", "Profile Updated Successfully!");
+                return res.redirect("back");
+            } else {
+                req.flash("info", "Wrong Password Pattern!");
+                return res.redirect("back");
+            }
+        } else {
+            req.flash("info", "Wrong Password Pattern!");
+            return res.status(401).send("Unauthorized!");
+        }
+    }
+    catch (err) {
+        req.flash("error", "Error Updating Profile!");
+        console.log(err);
+        return res.redirect("back");
+    }
+}
 
 //user session creation and desturction
 module.exports.createSession = function(req,res){

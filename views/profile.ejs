@@ -1,13 +1,48 @@
-<h1>User Profile</h1>
+<link rel="stylesheet" href="/css/profile.css"> 
 
 
 <% if(locals.user) { %>
+
+<section id="container">
+    <h3>Dashboard</h3>
+</section>
+
+<div id="UserDashboard">
+
+    <section id="basicDetails">
+        <div id="userName">
+            <h4>
+            <%= user.name%></h4>
+        </div>
+        <div id="userEmail">
+            <h4>
+                <%= user.email%></h4><br>
+        </div>
+    </section>
+
     
-                <%= user.name%>
+
+    <section id="updatePassword">
+        <form action="/user/update?id=<%=user.id%>" method="POST">
+            <input type="password" name="password" placeholder="Update Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"><br>
+            <input type="submit" value="Update Password">
+        </form>
+    </section>
+
+    
+
+    <section id="resetPassword">
+        <form action="">
+            <input type="password" name="password" placeholder="Old Password"><br>
+            <input type="password" name="password" placeholder="New Password"><br>
+            <input type="password" name="password" placeholder="Retype Password"><br>
+            <input type="submit" value="Update Password">
+        </form>
+    </section>
+</div>
+
+
+    
+                
                 
 <%} %>
-
-<form action="/user/uploadPic" method="post" enctype="multipart/form-data">
-    <input type="file" name="avatar"  placeholder="Profile Picture"/>
-    <input type="submit" placeholder="Upload">
-</form>

@@ -1,0 +1,92 @@
+
+#container{
+    background-image: repeating-linear-gradient(grey,black);
+    height: 4rem;
+    color:whitesmoke;
+    border:2px solid whitesmoke;
+    margin:0.1rem;
+    font-size: xx-large;
+    font-family: 'Times New Roman', Times, serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#UserDashboard{
+    position: relative;
+    left:12.5%;
+    top:12%;
+    width:75%;
+    border:2px solid grey;
+    height:14.5rem;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    border-radius: 8px;
+    box-shadow: 5px 5px lightseagreen;
+
+    #basicDetails{
+    background-image: repeating-linear-gradient(lightseagreen,lightgreen);
+    height: auto;
+    width: auto;
+    color:whitesmoke;
+    border:2px solid whitesmoke;
+    font-family: 'Times New Roman', Times, serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    }
+
+    #updatePassword{
+    background-image: repeating-linear-gradient(lightseagreen,lightgreen);
+    height: auto;
+    width: auto;
+    color:whitesmoke;
+    border:2px solid whitesmoke;
+    font-size: xx-large;
+    font-family: 'Times New Roman', Times, serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    input{
+        font-size: 0.8rem;
+        padding: 8px;
+        margin: 8px;
+        border-radius: 5px;
+    }
+
+    input[type=submit]{
+        position: relative;
+        left:16%;
+        
+    }
+
+    }
+
+    #resetPassword{
+    background-image: repeating-linear-gradient(lightseagreen,lightgreen);
+    height: auto;
+    width: auto;
+    color:whitesmoke;
+    border:2px solid whitesmoke;
+    font-family: 'Times New Roman', Times, serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+    input{
+        font-size: 0.8rem;
+        padding: 8px;
+        margin: 8px;
+        border-radius: 5px;
+    }
+
+    input[type=submit]{
+        position: relative;
+        left:15%;
+        
+    }
+}
