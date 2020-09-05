@@ -17,7 +17,7 @@ const userSchema = new mongoose.Schema({
     },
     securityPin : {
         type : String,
-        required : true
+        
     },
     name : {
         type : String,

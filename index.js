@@ -15,6 +15,7 @@ const flash = require('connect-flash')
 const db = require('./config/mongoose');
 const passportLocal = require('./config/passport-local-strategy');
 const customMware = require('./config/middleware')
+const passportGoogle = require('./config/passport-google-oauth2-strategy')
 
 
 //defining functions

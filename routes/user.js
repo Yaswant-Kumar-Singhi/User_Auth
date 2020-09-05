@@ -34,5 +34,13 @@ router.get('/forget-password',userController.forgetPassword)
 
 //updating password using security Pin
 router.post('/updtPasPin',userController.updatePasswordUsingSecurityPin)
+
+// route for google authentication
+router.get("/auth/google", passport.authenticate("google", { scope: ["profile", "email"] }));
+
+// callback for google authentication and create session
+router.get("/auth/google/callback", passport.authenticate("google", { failureRedirect: "/user/signin" }), userController.createSession);
+
+
 //exporting router
 module.exports = router;
