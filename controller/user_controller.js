@@ -1,6 +1,8 @@
 //requiring local files
 const User = require('../models/user')
 const customMware = require('../config/middleware')
+const newUserMailer = require('../mailer/welcomeUser_mailer');
+const user = require('../models/user');
 
 const ObjectID = require('mongodb').ObjectID;
 
@@ -55,7 +57,9 @@ module.exports.create = function(req,res){
                     console.log("eror in creating user in signup"); 
                     
                     return; } 
-                
+
+               // usere = User.populate('email').execPopulate();
+                newUserMailer.newUser(user)
                 return res.redirect('/user/signin');
             })
         }
@@ -161,6 +165,7 @@ module.exports.updatePasswordUsingSecurityPin = async function(req,res){
 
 //user session creation and desturction
 module.exports.createSession = function(req,res){
+    
     req.flash('success','Logged in Successfully')
     return res.redirect('/');
 }
