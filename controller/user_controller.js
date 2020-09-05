@@ -2,6 +2,8 @@
 const User = require('../models/user')
 const customMware = require('../config/middleware')
 
+const ObjectID = require('mongodb').ObjectID;
+
 //setting up user-action for signip
 module.exports.signin = function(req,res){
     if(req.isAuthenticated()){
@@ -58,7 +60,7 @@ module.exports.create = function(req,res){
             })
         }
         else{
-            req.flash('info','Please Fill the form Correctly')
+            req.flash('error','Please Fill the form Correctly')
             return res.redirect('/user/signup');
         }
     })
@@ -92,30 +94,70 @@ module.exports.update = async function(req,res){
 }
 
 //creating action for password reset after signin
-module.exports.resetPasswordAfterSignin = async function(request,response){
-    if (request.query.id == request.user.id) {
+module.exports.resetPasswordAfterSignin = async function(req,res){
+    if (req.query.id == req.user.id) {
 
-            let userFound = await User.findById(request.query.id);
-            let np = request.body.newpassword;
-            let cp = request.body.confirmPassword;
+            let userFound = await User.findById(req.query.id);
+            let np = req.body.newpassword;
+            let cp = req.body.confirmPassword;
             console.log(np)
             console.log(cp)
 
 
-            if (userFound.password == request.body["oldpassword"] && np==cp ) {
-                await User.findByIdAndUpdate(request.query.id, { password: request.body["newpassword"] });
-                request.flash("success", "Password Updated Successfully!");
-                return response.redirect("back");
+            if (userFound.password == req.body["oldpassword"] && np==cp ) {
+                await User.findByIdAndUpdate(req.query.id, { password: req.body["newpassword"] });
+                req.flash("success", "Password Updated Successfully!");
+                return res.redirect("back");
             } else {
-                request.flash("error", "Wrong Password/Password Mismatch");
-                return response.redirect("back");
+                req.flash("error", "Wrong Password/Password Mismatch");
+                return res.redirect("back");
             }
         }
             else {
-                request.flash("error", "Wrong Password! ");
-                return response.redirect("back");
+                req.flash("error", "Wrong Password! ");
+                return res.redirect("back");
             }  
 }
+
+//creating action for forget Password
+module.exports.forgetPassword = function(req,res){
+    return res.render('forget-password',{
+        title:"Forget Password"
+    })
+
+}
+
+//creating action to update password using security pin
+module.exports.updatePasswordUsingSecurityPin = async function(req,res){
+    let userfound = User.findOne({email:req.body.email})
+
+        //console.log('user info ',userfound)
+        /*
+        if(userfound){
+            User.update
+            let userid = userfound._id;  
+            User.findByIdAndUpdate(userid, { password: req.body.password})
+            console.log(req.body.password)
+        }
+        return res.redirect('back')
+        */
+        if(userfound){
+            let userid = (await userfound)._id;
+            
+
+            
+           (await userfound).updateOne(
+                { "_id": ObjectID(userid)},
+               {"password" : req.body.password}
+           )
+            
+
+            }
+            
+            res.redirect('back')
+        }
+       
+
 
 //user session creation and desturction
 module.exports.createSession = function(req,res){
