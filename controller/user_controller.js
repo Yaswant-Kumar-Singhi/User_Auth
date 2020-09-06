@@ -3,6 +3,7 @@ const User = require('../models/user')
 const customMware = require('../config/middleware')
 const newUserMailer = require('../mailer/welcomeUser_mailer');
 const updatePasswordAfterSigninIn = require('../mailer/updateUserPasswordAfterSignin_mailer')
+const resetPasswordAfterSigningIn = require('../mailer/resetPasswordAfterSignin_mailer')
 const user = require('../models/user');
 
 const ObjectID = require('mongodb').ObjectID;
@@ -107,12 +108,14 @@ module.exports.resetPasswordAfterSignin = async function(req,res){
             let userFound = await User.findById(req.query.id);
             let np = req.body.newpassword;
             let cp = req.body.confirmPassword;
+            let user = userFound
             console.log(np)
             console.log(cp)
 
 
             if (userFound.password == req.body["oldpassword"] && np==cp ) {
                 await User.findByIdAndUpdate(req.query.id, { password: req.body["newpassword"] });
+                resetPasswordAfterSigningIn.resetPasswordAfterSigningIn(user)
                 req.flash("success", "Password Updated Successfully!");
                 return res.redirect("back");
             } else {
