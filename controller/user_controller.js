@@ -2,6 +2,7 @@
 const User = require('../models/user')
 const customMware = require('../config/middleware')
 const newUserMailer = require('../mailer/welcomeUser_mailer');
+const updatePasswordAfterSigninIn = require('../mailer/updateUserPasswordAfterSignin_mailer')
 const user = require('../models/user');
 
 const ObjectID = require('mongodb').ObjectID;
@@ -76,9 +77,11 @@ module.exports.update = async function(req,res){
     try {
         if (req.query.id == req.user.id) {
             let userFound = await User.findById(req.query.id);
+            let user = userFound;
             
             if (userFound) {
                 await User.findByIdAndUpdate(req.query.id, { password: req.body.password });
+                updatePasswordAfterSigninIn.updatePasswordAfterSigningIn(user)
                 req.flash("success", "Profile Updated Successfully!");
                 return res.redirect("back");
             } else {

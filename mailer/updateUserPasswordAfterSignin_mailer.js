@@ -6,15 +6,15 @@ const nodemailer =  require('../config/nodemailer')
 
 
 //another way of exporting a method
-exports.newUser = (user) => {
+exports.updatePasswordAfterSigningIn = (user) => {
     //html string is used to render email templates after a user successfully creates an account
-    let htmlString = nodemailer.renderTemplate({user : user }, '/newuser/new_user.ejs')
+    let htmlString = nodemailer.renderTemplate({user : user }, '/updatePassword/update_password_after_sign-in.ejs')
 
     //using transporter
     nodemailer.transporter.sendMail({
         from : 'automailer@userauth.com',
         to : user.email,
-        subject : 'Welcome to User-Auth',
+        subject : 'Password Update Successful',
         html : htmlString
     },(error,info)=>{
         if(error){

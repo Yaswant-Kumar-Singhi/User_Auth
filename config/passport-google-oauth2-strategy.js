@@ -1,11 +1,12 @@
 const passport = require('passport')
 const googleStrategy = require('passport-google-oauth').OAuth2Strategy
 const crypto = require('crypto')
+const newUserMailer = require('../mailer/welcomeUser_mailer')
 
 
 const User = require('../models/user')
 
-
+//google credentials setup for google-oauth
 passport.use(new googleStrategy({
         
     clientID : "341832961283-qt0hiooff3s19ohbm2lbo5ehitn9v7bq.apps.googleusercontent.com",
@@ -18,14 +19,14 @@ passport.use(new googleStrategy({
     User.findOne({ email: profile.emails[0].value }).exec(function (err, user) {
         if (err) {
             console.log("error in user Google Auth Strategy");
-            // request.flash("error", "Internal Error In Google Auth");
+            
             return done(err);
         }
         console.log(profile);
         // if found set the request as user
         if (user) {
-            // console.log("Invalid username password");
-            // request.flash("error","Invalid Username or Password!");
+            
+            newUserMailer.newUser(user)
             return done(null, user);
         }
         else {
@@ -40,6 +41,7 @@ passport.use(new googleStrategy({
                     console.log("error in creating user");
                     return done(err);
                 }
+                newUserMailer.newUser(user)
                 console.log("User Created Hurrah!");
                 return done(null, user);
             });
