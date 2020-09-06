@@ -4,14 +4,15 @@ const nodemailer =  require('../config/nodemailer')
 
 //another way of exporting a method
 exports.newUser = (user) => {
-    console.log("inside newUser mailer",user)
-    console.log('****user email-****',user.email)
+    //console.log("inside newUser mailer",user)
+    //console.log('****user email-****',user.email)
+    let htmlString = nodemailer.renderTemplate({user : user }, '/newuser/new_user.ejs')
 
     nodemailer.transporter.sendMail({
         from : 'usercheker824@gmail.com',
         to : user.email,
         subject : 'Welcome to User-Auth',
-        html :'<h1> Welcome to User-Auth! </h1>'
+        html : htmlString
     },(error,info)=>{
         if(error){
             console.log('error in sending mail', error)
