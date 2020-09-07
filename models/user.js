@@ -1,9 +1,6 @@
 //requiring mongoose
 const mongoose = require('mongoose');
 
-
-
-
 //creatig user schema
 const userSchema = new mongoose.Schema({
     email : {
@@ -23,7 +20,6 @@ const userSchema = new mongoose.Schema({
 },{
     timestamps : true
 });
-
 
 
 //creating user model and exporting it
