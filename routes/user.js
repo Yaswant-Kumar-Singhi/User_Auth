@@ -29,11 +29,7 @@ router.post('/update',passport.checkAuthentication,userController.update)
 //reset password after signin
 router.post('/reset', passport.checkAuthentication,userController.resetPasswordAfterSignin)
 
-//forget password
-router.get('/forget-password',userController.forgetPassword)
 
-//updating password using security Pin
-router.post('/updtPasPin',userController.updatePasswordUsingSecurityPin)
 
 // route for google authentication
 router.get("/auth/google", passport.authenticate("google", { scope: ["profile", "email"] }));
