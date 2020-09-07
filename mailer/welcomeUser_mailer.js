@@ -4,7 +4,6 @@ const nodemailer =  require('../config/nodemailer')
 //requiring local files
 
 
-
 //another way of exporting a method
 exports.newUser = (user) => {
     //html string is used to render email templates after a user successfully creates an account
