@@ -15,10 +15,6 @@ const userSchema = new mongoose.Schema({
         type : String,
         required : true
     },
-    securityPin : {
-        type : String,
-        
-    },
     name : {
         type : String,
         required :true

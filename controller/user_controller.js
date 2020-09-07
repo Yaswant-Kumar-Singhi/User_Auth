@@ -1,3 +1,7 @@
+//requiring global files
+const bcrypt = require('bcrypt');
+
+
 //requiring local files
 const User = require('../models/user')
 const customMware = require('../config/middleware')
@@ -49,21 +53,26 @@ module.exports.create = function(req,res){
         req.flash('error','Security Pin Mismatch')
         return res.redirect('back');
     }
-
+    
     User.findOne({email:req.body.email},function(err,user){
         if(err) {console.log("eror in finding the user in signup"); return; }
 
         if(!user){
+            
             User.create(req.body,function(err,user){
+                user.pre
                 if(err) {
                     console.log("eror in creating user in signup"); 
                     
                     return; } 
 
                // usere = User.populate('email').execPopulate();
+                
                 newUserMailer.newUser(user)
                 return res.redirect('/user/signin');
             })
+            
+
         }
         else{
             req.flash('error','Please Fill the form Correctly')
@@ -136,37 +145,6 @@ module.exports.forgetPassword = function(req,res){
     })
 
 }
-
-//creating action to update password using security pin
-module.exports.updatePasswordUsingSecurityPin = async function(req,res){
-    let userfound = User.findOne({email:req.body.email})
-
-        //console.log('user info ',userfound)
-        /*
-        if(userfound){
-            User.update
-            let userid = userfound._id;  
-            User.findByIdAndUpdate(userid, { password: req.body.password})
-            console.log(req.body.password)
-        }
-        return res.redirect('back')
-        */
-        if(userfound){
-            let userid = (await userfound)._id;
-            
-
-            
-           (await userfound).updateOne(
-                { "_id": ObjectID(userid)},
-               {"password" : req.body.password}
-           )
-            
-
-            }
-            
-            res.redirect('back')
-        }
-       
 
 
 //user session creation and desturction
