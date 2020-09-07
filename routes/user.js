@@ -3,7 +3,10 @@ const express = require('express');
 const passport = require('passport');
 const router = express.Router();
 
+//requiring local files
 const userController = require('../controller/user_controller')
+
+//routing
 router.get('/profile',passport.checkAuthentication,userController.profile);
 router.get('/signup',userController.signup);
 router.get('/signin',userController.signin);

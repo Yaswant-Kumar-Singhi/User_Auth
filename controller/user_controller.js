@@ -1,5 +1,6 @@
 //requiring global files
 const bcrypt = require('bcrypt');
+const ObjectID = require('mongodb').ObjectID;
 
 
 //requiring local files
@@ -10,7 +11,7 @@ const updatePasswordAfterSigninIn = require('../mailer/updateUserPasswordAfterSi
 const resetPasswordAfterSigningIn = require('../mailer/resetPasswordAfterSignin_mailer')
 const user = require('../models/user');
 
-const ObjectID = require('mongodb').ObjectID;
+
 
 //setting up user-action for signip
 module.exports.signin = function(req,res){
