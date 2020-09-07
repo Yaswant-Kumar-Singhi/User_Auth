@@ -9,8 +9,8 @@ const User = require('../models/user')
 //google credentials setup for google-oauth
 passport.use(new googleStrategy({
         
-        clientID : "341832961283-qt0hiooff3s19ohbm2lbo5ehitn9v7bq.apps.googleusercontent.com",
-        clientSecret : "U9Jh5itm5Tzh82oZ1EvL2gyi",
+        clientID : "YOUR_CLIENT_ID",
+        clientSecret : "YOUR_SECRET_KEY",
         callbackURL: "http://localhost:8000/user/auth/google/callback"
 
 },
