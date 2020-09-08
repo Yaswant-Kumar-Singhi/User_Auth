@@ -90,7 +90,7 @@ npm strat
  
 ```
 ### Home Page
-![](assets\screenshot\HomePage.JPG)
+![](E:\PRACTISE WEB_D\Projects\NODE PROJECTS\User_Auth\assets\screenshot\HomePage.JPG)
 
 
 ### SignUp Page
