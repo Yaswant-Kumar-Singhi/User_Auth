@@ -102,9 +102,79 @@ npm strat
 
 
 ### User Home Page
-![](https://github.com/Yaswant-Kumar-Singhi/User_Auth/blob/master/assets/screenshot/UserProfileDashboardView.JPG)
+![](https://github.com/Yaswant-Kumar-Singhi/User_Auth/blob/master/assets/screenshot/UserHomePage.JPG)
 
 
 ### User Profile Page
 ![](https://github.com/Yaswant-Kumar-Singhi/User_Auth/blob/master/assets/screenshot/UserProfileDashboardView.JPG)
 
+### Description of Routes
+
+`localhost:8000/   :` Home Page. <br>
+`user/signup       :` Creting a user. <br>
+`user/signin       :` Login a user. <br>
+`user/profile      :` Going to user profile.<br>
+`user/update       :` Updating user password.<br>
+`user/reset        :` Reseting user password.<br>
+`user/sign-out     :` User can sign out from the platform.<br>
+
+#### File directory structure.
+```
+$ tree
+.
+├── assets
+│   ├── css
+|     ├── footer.css
+│     ├── header.css
+|     ├── layout.css
+|     ├── profile.css
+|     ├── signin.css
+|     └── sign_up.css
+│   ├── js
+|   ├── screenshort
+|   └── scss
+|    ├── footer.scss
+│    ├── header.scss
+|    ├── layout.scss
+|    ├── profile.scss
+|    ├── signin.scss
+|    └── sign_up.scss
+├── config
+│   ├── middleware.js
+|   ├── mongoose.js
+|   ├── nodemailer.js
+|   ├── passport-google-oauth2-strategy.js
+│   └── passport-local-strategy.js
+├── controllers
+│   ├── home_controller.js
+|   └── user_controller.js
+├── mailer
+│   ├── resetPasswordAfterSignin_mailer.js
+|   ├── updatePasswordAfterSignin_mailer.js
+|   └── welcomeUser_mailer.js
+├── models
+│   └── user.js
+├── routes
+│   ├── index.js
+|   └── users.js
+├── views
+│   ├── mailer
+│       ├──newuser 
+|          └── new_user.ejs
+│       ├── resetPassword
+|          └── reset_password_after_singing_in.ejs
+|       ├── updatePassword
+|          └── update_password_after_sign-in.ejs.ejs
+│   ├── _footer.ejs
+│   ├── _header.ejs
+|   ├── layout.ejs
+│   ├── profile.ejs
+|   ├── signin.ejs
+|   └── signup.ejs
+├── index.js
+├── package.json
+├── package-lock.json
+├── node_modules
+└── README.md
+```
+# :eyes: End of my ReadME. Follow me if you like it!!!
