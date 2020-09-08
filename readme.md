@@ -15,6 +15,8 @@
 ![](https://img.shields.io/badge/passport-0.4.1-brightgreen)
 ![](https://img.shields.io/badge/passport--google--oauth-2.0.0-red)
 
+For video explanation <a href="https://youtu.be/cUIK4mOit1k">click me!</a> or you can go to https://youtu.be/cUIK4mOit1k
+
 ```
 Demo
 ```
