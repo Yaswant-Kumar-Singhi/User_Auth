@@ -89,3 +89,25 @@ mongodb://localhost/userAuth
 npm strat 
  
 ```
+### Home Page
+![](assets\screenshot\HomePage.JPG)
+
+
+### SignUp Page
+![](https://github.com/Yaswant-Kumar-Singhi/Habit-Tracker/blob/master/assets/screenshort/SignUpForm.JPG)
+
+
+### Sign In Page
+![](https://github.com/Yaswant-Kumar-Singhi/Habit-Tracker/blob/master/assets/screenshort/SignInForm.JPG)
+
+
+### User Profile Page
+![](https://github.com/Yaswant-Kumar-Singhi/Habit-Tracker/blob/master/assets/screenshort/UserProfile.JPG)
+
+
+### Adding a Habit
+![](https://github.com/Yaswant-Kumar-Singhi/Habit-Tracker/blob/master/assets/screenshort/AddingHabbitViewUser.JPG)
+
+
+### calender view
+![](https://github.com/Yaswant-Kumar-Singhi/Habit-Tracker/blob/master/assets/screenshort/Capture.JPG)
