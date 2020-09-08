@@ -90,24 +90,21 @@ npm strat
  
 ```
 ### Home Page
-![](E:\PRACTISE WEB_D\Projects\NODE PROJECTS\User_Auth\assets\screenshot\HomePage.JPG)
+![](https://github.com/Yaswant-Kumar-Singhi/User_Auth/blob/master/assets/screenshot/HomePage.JPG)
 
 
 ### SignUp Page
-![](https://github.com/Yaswant-Kumar-Singhi/Habit-Tracker/blob/master/assets/screenshort/SignUpForm.JPG)
+![](https://github.com/Yaswant-Kumar-Singhi/User_Auth/blob/master/assets/screenshot/signupForm.JPG)
 
 
 ### Sign In Page
-![](https://github.com/Yaswant-Kumar-Singhi/Habit-Tracker/blob/master/assets/screenshort/SignInForm.JPG)
+![](https://github.com/Yaswant-Kumar-Singhi/User_Auth/blob/master/assets/screenshot/loginForm.JPG)
+
+
+### User Home Page
+![](https://github.com/Yaswant-Kumar-Singhi/User_Auth/blob/master/assets/screenshot/UserProfileDashboardView.JPG)
 
 
 ### User Profile Page
-![](https://github.com/Yaswant-Kumar-Singhi/Habit-Tracker/blob/master/assets/screenshort/UserProfile.JPG)
+![](https://github.com/Yaswant-Kumar-Singhi/User_Auth/blob/master/assets/screenshot/UserProfileDashboardView.JPG)
 
-
-### Adding a Habit
-![](https://github.com/Yaswant-Kumar-Singhi/Habit-Tracker/blob/master/assets/screenshort/AddingHabbitViewUser.JPG)
-
-
-### calender view
-![](https://github.com/Yaswant-Kumar-Singhi/Habit-Tracker/blob/master/assets/screenshort/Capture.JPG)
