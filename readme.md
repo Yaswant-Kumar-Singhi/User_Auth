@@ -40,6 +40,12 @@ Demo
 - [x] Use of Social Login - Google Login/Sigup 
 - [x] Use of Nodemailer
 
+
+## Upcoming Feature
+- [x] Facebook - Login/Signup.
+- [x] Use of reCAPTCHA - For blocking bots to signup.
+- [x] Use of avatars 
+
 ### Technology Stack Used
 
 Particulars | Version

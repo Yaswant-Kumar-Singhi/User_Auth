@@ -13,7 +13,7 @@ const user = require('../models/user');
 
 
 
-//setting up user-action for signip
+//setting up user-action for signip.
 module.exports.signin = function(req,res){
     if(req.isAuthenticated()){
       return res.redirect('/user/profile');

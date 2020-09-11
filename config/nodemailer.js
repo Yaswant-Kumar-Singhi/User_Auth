@@ -1,8 +1,9 @@
+//requiring global files
 const nodemailer = require('nodemailer')
 const ejs = require('ejs')
 const path = require('path')
 
-
+//creating transporter
 
 let transporter = nodemailer.createTransport({
     service: "gmail",
@@ -15,6 +16,7 @@ let transporter = nodemailer.createTransport({
     }
 });
 
+//rendering custome emial templates
 let renderTemplate = (data, relativePath) => {
     let mailHtml;
     ejs.renderFile(
@@ -36,6 +38,7 @@ let renderTemplate = (data, relativePath) => {
 
 };
 
+//exporting and rendering custom templates
 module.exports = {
     transporter: transporter,
     renderTemplate: renderTemplate

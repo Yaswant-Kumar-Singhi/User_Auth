@@ -1,9 +1,12 @@
+//requiring global files
 const passport = require('passport')
 const googleStrategy = require('passport-google-oauth').OAuth2Strategy
 const crypto = require('crypto')
+
+//requiring local files
 const newUserMailer = require('../mailer/welcomeUser_mailer')
 
-
+//importing models
 const User = require('../models/user')
 
 //google credentials setup for google-oauth
